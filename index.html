@@ -1,71 +1,232 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Because of Winn-Dixie — A Reading Journey</title>
+
+<!-- Stable tablet behaviour -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+
+<title>Because of Winn-Dixie — Reading Environment</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;1,400;1,600&family=Source+Sans+3:wght@300;400;600&display=swap" rel="stylesheet">
 
-<link rel="stylesheet" href="styles.css">
+<style>
+
+/* ===== BASE ===== */
+body {
+  margin: 0;
+  font-family: 'Source Sans 3', sans-serif;
+  background: linear-gradient(#6FB3C8,#7FC0D3);
+  color: #2F2A26;
+}
+
+body.locked {
+  overflow: hidden;
+}
+
+button {
+  user-select: none;
+}
+
+/* ===== MASTHEAD ===== */
+.masthead {
+  text-align: center;
+  padding: 3rem 1rem 2rem;
+}
+
+.masthead-label {
+  color: rgba(255,255,255,0.7);
+  font-size: 0.9rem;
+}
+
+.masthead h1 {
+  font-family: 'Crimson Text', serif;
+  font-style: italic;
+  color: white;
+  margin: 0.5rem 0;
+}
+
+.masthead-author {
+  color: rgba(255,255,255,0.8);
+  font-size: 0.9rem;
+}
+
+/* ===== NAV ===== */
+.zone-nav-wrap {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+.zone-nav {
+  display: flex;
+  gap: 0.3rem;
+}
+
+.zone-nav button {
+  background: rgba(255,255,255,0.2);
+  border: none;
+  padding: 0.6rem 0.8rem;
+  color: white;
+  cursor: pointer;
+  border-radius: 6px;
+}
+
+.zone-nav button.active {
+  background: #D65A4A;
+  transform: scale(1.05);
+}
+
+/* ===== ZONES ===== */
+.zone {
+  display: none;
+  max-width: 720px;
+  margin: auto;
+  padding: 2rem;
+}
+
+.zone.active {
+  display: block;
+}
+
+/* ===== CHOICES ===== */
+.choice-row button {
+  margin: 0.3rem;
+  padding: 0.4rem 0.7rem;
+  border: none;
+  background: rgba(255,255,255,0.6);
+  border-radius: 4px;
+}
+
+.choice-row button.active {
+  background: #D65A4A;
+  color: white;
+}
+
+/* ===== TEXT ===== */
+textarea {
+  width: 100%;
+  margin-top: 1rem;
+  min-height: 80px;
+  border: none;
+  padding: 0.6rem;
+  background: rgba(255,255,255,0.7);
+}
+
+/* ===== AGGREGATION ===== */
+.aggregation {
+  font-size: 0.8rem;
+}
+
+.agg-item {
+  cursor: pointer;
+  opacity: 0.6;
+}
+
+.agg-item.active {
+  opacity: 1;
+  font-weight: bold;
+}
+
+.agg-item.dimmed {
+  opacity: 0.2;
+}
+
+/* ===== RESPONSE PANEL ===== */
+.response-panel {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  max-height: 30%;
+  overflow-y: auto;
+  background: white;
+  padding: 1rem;
+  font-size: 0.9rem;
+}
+
+/* ===== LOGIN ===== */
+.login-screen {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(#6FB3C8,#7FC0D3);
+  transition: opacity 0.4s;
+}
+
+.login-box input {
+  padding: 0.5rem;
+  margin-top: 1rem;
+}
+
+.login-box input:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px #D65A4A;
+}
+
+/* ===== TEACHER PANEL ===== */
+#teacher-panel {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  display: none;
+  gap: 0.5rem;
+}
+
+</style>
 </head>
 
-<body>
+<body class="locked">
 
+<!-- LOGIN -->
+<div id="login-screen" class="login-screen">
+  <div class="login-box">
+    <div>Enter your name</div>
+    <input id="nameInput" onkeydown="if(event.key==='Enter') startSession()">
+    <button onclick="startSession()">Start</button>
+  </div>
+</div>
+
+<!-- TEACHER -->
+<div id="teacher-panel">
+  <button onclick="toggleAggregation()">Show / Hide</button>
+  <button onclick="freezeAggregation()">Freeze</button>
+  <button onclick="resetAggregation()">Reset</button>
+  <button onclick="clearSpotlight()">Clear Focus</button>
+</div>
+
+<!-- HEADER -->
 <div class="masthead">
   <div class="masthead-label">A Reading Journey</div>
   <h1>Because of Winn-Dixie</h1>
   <div class="masthead-author">Kate DiCamillo</div>
 </div>
 
+<!-- NAV -->
 <div class="zone-nav-wrap">
-  <nav class="zone-nav">
-    <button class="zone-btn active" onclick="setZone('z1')">one</button>
-    <button class="zone-btn" onclick="setZone('z2')">two</button>
-    <button class="zone-btn" onclick="setZone('z3')">three</button>
-    <button class="zone-btn" onclick="setZone('z4')">four</button>
-    <button class="zone-btn" onclick="setZone('z5')">five</button>
-    <button class="zone-btn" onclick="setZone('z6')">six</button>
-  </nav>
+  <nav id="nav" class="zone-nav"></nav>
 </div>
 
-<main>
+<!-- APP -->
+<main id="app"></main>
 
-<div id="z1" class="zone active">
-  <div class="entry-prompt">What do you notice first about him?</div>
-  <textarea class="thinking-area" oninput="wc(this)"></textarea>
+<!-- RESPONSES -->
+<div id="response-panel" class="response-panel">
+  <em>Responses will appear here</em>
 </div>
 
-<div id="z2" class="zone">
-  <div class="entry-prompt">Which word fits Opal?</div>
-  <div class="word-cloud">
-    <div class="w-item" onclick="mark(this)">lonely</div>
-    <div class="w-item" onclick="mark(this)">hopeful</div>
-    <div class="w-item" onclick="mark(this)">curious</div>
-  </div>
-</div>
-
-<div id="z3" class="zone">
-  <div class="entry-prompt">Who matters most?</div>
-</div>
-
-<div id="z4" class="zone">
-  <div class="entry-prompt">Sweet or sad?</div>
-</div>
-
-<div id="z5" class="zone">
-  <div class="entry-prompt">What changes?</div>
-</div>
-
-<div id="z6" class="zone">
-  <div class="entry-prompt">What stays?</div>
-  <textarea class="thinking-area" oninput="wc(this)"></textarea>
-</div>
-
-</main>
-
+<!-- FILES -->
+<script src="zones.js"></script>
 <script src="app.js"></script>
+
+<!-- SAFETY -->
+<script>
+window.addEventListener("error", () => {
+  document.body.innerHTML = "<h2>Check app.js / zones.js</h2>";
+});
+</script>
+
 </body>
 </html>
