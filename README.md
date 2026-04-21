@@ -1,122 +1,63 @@
 Because of Winn-Dixie — Reading Environment
-https://justinsteinmetz.github.io/BoWD/
 
-
-A browser-based literary thinking environment for mixed-ability classrooms (A2–B2).
-
-This is not a worksheet.
-It is a structured space for reading, noticing, and interpretation.
+Live: https://justinsteinmetz.github.io/BoWD/
 
 ---
 
 What this is
 
-This project creates a six-zone reading journey through Because of Winn-Dixie.
+A browser-based reading environment for Because of Winn-Dixie, designed for mixed-ability classes (A2–B2).
 
-Students:
+It supports:
 
-- move between zones
-- click, choose, and write short responses
-- engage with character, theme, and feeling without heavy instruction
+- low-barrier participation
+- short, focused responses
+- discussion based on student thinking
 
-The system prioritises:
-
-- access (low language barrier)
-- participation (multiple entry points)
-- interpretation (no fixed answers)
+It is not a worksheet and should not be used as one.
 
 ---
 
-File structure
+How to run it
 
-/project
-│
-├── index.html → structure + content
-├── styles.css → visual system (layout, typography, atmosphere)
-└── app.js → interaction logic (state, behaviour)
+Open the link or "index.html" in a browser.
 
----
+Use:
 
-How it works
+- projector (whole class), or
+- student devices (individual / pairs)
 
-Zones
-
-1. Meeting Winn-Dixie — noticing
-2. Opal’s World — emotional mapping
-3. People Who Appear — relationships
-4. Strange & Tender Moments — thematic depth
-5. Things That Change — cause and effect
-6. What Stays With Us — reflection
-
-Students can move freely. You do not need to complete everything.
+No setup required.
 
 ---
 
-Interaction types
+Lesson structure (reliable pattern)
 
-- Word selection → low-barrier entry
-- Grouping → categorising ideas
-- Ranking → making judgements
-- Short writing → extending thinking
+Use this cycle throughout:
 
-A2 students can participate without heavy language.
-B1–B2 students can go deeper.
+1. Students read silently
+2. Students respond (click / choose / write)
+3. Teacher asks one question
+4. Move on
 
----
-
-How to run it (quick)
-
-1. Open it
-
-Project it or let students use devices.
+Do not extend any single task too long.
 
 ---
 
-2. Start in Zone 1
+Movement through the zones
 
-Say:
-
-«“Read this. Don’t explain it yet.”»
-
-Pause (20–30 seconds).
-
-Then:
-
-«“What did you notice first?”»
-
-Take a few answers. Move on.
-
----
-
-3. Use this pattern
-
-1. Silence (read / think)
-2. Action (click / choose / write)
-3. Talk (one question)
-4. Stop early
-
----
-
-4. Move selectively
-
-- Do 1–2 tasks per zone
+- Select 1–2 tasks per zone
 - Skip freely
-- Leave things unfinished
+- Do not aim to complete all six zones
 
-Better to go deep in a few zones than rush all six.
+Recommended (40-minute lesson):
 
----
+- Zone 1 → 5–7 min
+- Zone 2 → 8–10 min
+- Zone 3 → 8–10 min
+- Zone 4 → 10–12 min
 
-What to say
-
-Keep it short:
-
-- “Why that one?”
-- “What’s different?”
-- “Who agrees?”
-- “What changed?”
-
-Avoid long explanations.
+Zones 5–6 are optional.
 
 ---
 
@@ -124,107 +65,87 @@ Differentiation
 
 A2 students
 
-- allow clicking / choosing only
-- accept one-word answers
-- offer simple frames if needed:
+- allow non-written participation (clicking, selecting)
+- accept one-word or short responses
+- provide simple frames if needed:
 
-«“He feels ___ because ___.”»
+«He feels ___ because ___.»
 
 ---
 
 B1–B2 students
 
-- push for explanation
-- ask “why?” and “how?”
+- require explanation (“why?” / “how?”)
 - challenge general answers
+- encourage connections across zones
 
 ---
 
-Timing (40 min lesson)
+Teacher role
 
-- Zone 1 → 5–7 min
-- Zone 2 → 8–10 min
-- Zone 3 → 8–10 min
-- Zone 4 → 10–12 min
+Keep input minimal.
 
-Skip Zones 5–6 if needed.
+Use short prompts:
+
+- “Why that one?”
+- “What’s different?”
+- “Who agrees?”
+- “What changed?”
+
+Avoid long explanations.
+Do not interpret the text for the students.
 
 ---
 
-Design principles
+If engagement drops
 
-- Minimal instruction
-- No answer signalling
-- Atmosphere supports thinking
-- Controlled openness (not chaos)
+Use one prompt, then move:
+
+- “Choose a different answer.”
+- “Who disagrees?”
+- “What’s less obvious?”
+
+Do not over-correct or extend.
+
+---
+
+What to avoid
+
+- over-explaining tasks
+- correcting every response
+- requiring extended writing
+- treating the activity as assessment
+
+These reduce participation and slow the lesson.
 
 ---
 
 Editing the project
 
-- Change prompts → "index.html"
-- Change visuals → "styles.css"
-- Change behaviour → "app.js"
+- Content → "index.html"
+- Visual design → "styles.css"
+- Behaviour → "app.js"
 
 Keep these roles separate.
 
 ---
 
-What NOT to do
-
-- Don’t over-explain
-- Don’t correct everything
-- Don’t force long writing
-- Don’t turn it into a worksheet
-
----
-
-If it goes flat
-
-- “Choose a different answer.”
-- “Who disagrees?”
-- “That’s obvious. What’s less obvious?”
-
-Then move on.
-
----
-
-Ending the lesson
-
-Ask:
-
-«“What stayed with you?”»
-
-Take 2–3 answers.
-
-Stop.
-
----
-
-What to look for
-
-Not correctness.
-
-Look for:
-
-- noticing
-- shifting ideas
-- students reacting to each other
-
----
-
 Status
 
-This is a working teaching tool.
+This is a working classroom tool.
 
-Use it. Adjust it. Iterate.
+It should be:
+
+- used flexibly
+- adjusted based on student response
+- iterated over time
 
 ---
 
-Core idea
+Core principle
 
-Students don’t need more questions.
+The goal is not to generate correct answers.
 
-They need:
+The goal is:
 
-«space to notice, and a structure that makes noticing matter.»
+«to create conditions where students notice, respond, and revise their thinking.»
