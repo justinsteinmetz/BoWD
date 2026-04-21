@@ -1,1 +1,87 @@
+* { box-sizing: border-box; margin: 0; padding: 0; }
 
+body {
+  font-family: 'Source Sans 3', sans-serif;
+  background: linear-gradient(to bottom, #6FB3C8, #7FC0D3);
+  color: #2F2A26;
+}
+
+.masthead {
+  text-align: center;
+  padding: 4rem 2rem;
+}
+
+.masthead h1 {
+  font-family: 'Crimson Text', serif;
+  font-style: italic;
+  color: white;
+}
+
+.zone-nav-wrap {
+  position: sticky;
+  top: 0;
+  backdrop-filter: blur(6px);
+}
+
+.zone-nav {
+  display: flex;
+  justify-content: center;
+}
+
+.zone-btn {
+  background: none;
+  border: none;
+  padding: 1rem;
+  color: white;
+  cursor: pointer;
+}
+
+.zone-btn.active {
+  border-bottom: 2px solid #D65A4A;
+}
+
+main {
+  max-width: 720px;
+  margin: auto;
+  padding: 2rem;
+}
+
+.zone {
+  display: none;
+}
+
+.zone.active {
+  display: block;
+}
+
+.entry-prompt {
+  font-family: 'Crimson Text', serif;
+  font-style: italic;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.thinking-area {
+  width: 100%;
+  min-height: 100px;
+  padding: 0.8rem;
+  border: none;
+  background: rgba(255,255,255,0.6);
+}
+
+.word-cloud {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
+}
+
+.w-item {
+  background: rgba(255,255,255,0.5);
+  padding: 0.4rem 0.7rem;
+  cursor: pointer;
+}
+
+.w-item.active {
+  background: #D65A4A;
+  color: white;
+}
