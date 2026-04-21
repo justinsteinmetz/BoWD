@@ -1,4 +1,6 @@
 Because of Winn-Dixie — Reading Environment
+https://justinsteinmetz.github.io/BoWD/
+
 
 A browser-based literary thinking environment for mixed-ability classrooms (A2–B2).
 
