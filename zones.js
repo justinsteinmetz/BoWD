@@ -1,3 +1,4 @@
+```javascript
 const ZONES = [
   {
     id: "z1",
@@ -28,3 +29,4 @@ const ZONES = [
     agg: true
   }
 ];
+```
