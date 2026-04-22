@@ -1,4 +1,3 @@
-```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,22 +6,20 @@
 
 <title>Because of Winn-Dixie — Reading Environment</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Crimson+Text&family=Source+Sans+3&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital@0;1&family=Source+Sans+3&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
 </head>
 
 <body class="locked">
 
-<!-- ===== LOGIN ===== -->
+<!-- LOGIN -->
 <div id="login-screen" class="login-screen">
   <div class="login-box">
-
-    <div class="login-author">Kate DiCamillo</div>
     <div class="login-title">Because of Winn-Dixie</div>
     <div class="entry-prompt">Enter your name</div>
 
     <input 
-      id="nameInput" 
+      id="nameInput"
       placeholder="Your name"
       autocomplete="off"
       onkeydown="if(event.key==='Enter') startSession()"
@@ -32,7 +29,7 @@
   </div>
 </div>
 
-<!-- ===== TEACHER PANEL ===== -->
+<!-- TEACHER PANEL -->
 <div id="teacher-panel">
   <button onclick="toggleAggregation()">Show / Hide</button>
   <button onclick="freezeAggregation()">Freeze</button>
@@ -40,22 +37,22 @@
   <button onclick="clearSpotlight()">Clear Focus</button>
 </div>
 
-<!-- ===== HEADER ===== -->
+<!-- HEADER -->
 <div class="masthead">
   <div class="masthead-label">A Reading Journey</div>
   <h1>Because of Winn-Dixie</h1>
   <div class="masthead-author">Kate DiCamillo</div>
 </div>
 
-<!-- ===== NAV ===== -->
+<!-- NAV -->
 <div class="zone-nav-wrap">
   <nav id="nav" class="zone-nav"></nav>
 </div>
 
-<!-- ===== MAIN ===== -->
+<!-- APP -->
 <main id="app"></main>
 
-<!-- ===== RESPONSES ===== -->
+<!-- RESPONSES -->
 <div id="response-panel" class="response-panel">
   <em style="opacity:0.5;">Responses will appear here</em>
 </div>
@@ -65,4 +62,3 @@
 
 </body>
 </html>
-```
