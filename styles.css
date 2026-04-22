@@ -1,5 +1,8 @@
+```css
+/* ===== RESET ===== */
 * { box-sizing: border-box; margin: 0; padding: 0; }
 
+/* ===== BASE ===== */
 body {
   font-family: 'Source Sans 3', sans-serif;
   background: linear-gradient(#6FB3C8,#7FC0D3);
@@ -10,7 +13,7 @@ body.locked {
   overflow: hidden;
 }
 
-/* LOGIN */
+/* ===== LOGIN ===== */
 .login-screen {
   position: fixed;
   inset: 0;
@@ -23,15 +26,15 @@ body.locked {
     linear-gradient(rgba(111,179,200,0.6), rgba(127,192,211,0.7)),
     url('cover.jpg');
 
-  background-size: contain;     /* 👈 shows full girl + dog */
+  background-size: 140%;
+  background-position: 70% center;
   background-repeat: no-repeat;
-  background-position: center;
 
   z-index: 999;
 }
 
 .login-box {
-  text-align: centre;
+  text-align: center;
   padding: 1.5rem 2rem;
 
   background: rgba(255,255,255,0.15);
@@ -60,6 +63,10 @@ body.locked {
   color: white;
 }
 
+.login-box input::placeholder {
+  color: rgba(255,255,255,0.7);
+}
+
 .login-box button {
   margin-top: 1rem;
   padding: 0.4rem 0.8rem;
@@ -67,9 +74,10 @@ body.locked {
   background: rgba(255,255,255,0.3);
   color: white;
   cursor: pointer;
+  border-radius: 4px;
 }
 
-/* HEADER */
+/* ===== HEADER ===== */
 .masthead {
   text-align: center;
   padding: 3rem 1rem 2rem;
@@ -89,7 +97,7 @@ body.locked {
   color: rgba(255,255,255,0.8);
 }
 
-/* NAV */
+/* ===== NAV ===== */
 .zone-nav-wrap {
   display: flex;
   justify-content: center;
@@ -101,13 +109,15 @@ body.locked {
   padding: 0.6rem 0.8rem;
   color: white;
   cursor: pointer;
+  border-radius: 6px;
+  transition: 0.2s;
 }
 
 .zone-nav button.active {
   background: #D65A4A;
 }
 
-/* MAIN */
+/* ===== MAIN ===== */
 main {
   max-width: 720px;
   margin: auto;
@@ -115,17 +125,27 @@ main {
   padding-bottom: 120px;
 }
 
-/* ZONES */
-.zone { display: none; }
-.zone.active { display: block; }
+/* ===== ZONES ===== */
+.zone {
+  display: none;
+}
 
-/* CHOICES */
-.choice-row { margin-top: 1rem; }
+.zone.active {
+  display: block;
+}
+
+/* ===== CHOICES ===== */
+.choice-row {
+  margin-top: 1rem;
+}
 
 .choice-row button {
   margin: 0.3rem;
   padding: 0.4rem 0.7rem;
   cursor: pointer;
+  border: none;
+  background: rgba(255,255,255,0.6);
+  border-radius: 4px;
 }
 
 .choice-row button.active {
@@ -133,14 +153,18 @@ main {
   color: white;
 }
 
-/* TEXT */
+/* ===== TEXT ===== */
 textarea {
   width: 100%;
   margin-top: 1rem;
   min-height: 80px;
+  border: none;
+  padding: 0.6rem;
+  background: rgba(255,255,255,0.7);
+  border-radius: 4px;
 }
 
-/* AGG */
+/* ===== AGGREGATION ===== */
 .aggregation {
   margin-top: 0.5rem;
   font-size: 0.8rem;
@@ -160,7 +184,7 @@ textarea {
   opacity: 0.2;
 }
 
-/* RESPONSES */
+/* ===== RESPONSE PANEL ===== */
 .response-panel {
   position: fixed;
   bottom: 0;
@@ -172,17 +196,25 @@ textarea {
 
   background: rgba(255,255,255,0.95);
   padding: 1rem;
+  font-size: 0.9rem;
 }
 
 .response-item {
   margin-bottom: 0.5rem;
 }
 
-/* TEACHER PANEL */
+/* ===== TEACHER PANEL ===== */
 #teacher-panel {
   position: fixed;
   top: 10px;
   right: 10px;
   display: none;
   gap: 0.5rem;
+  z-index: 1000;
 }
+
+#teacher-panel button {
+  padding: 0.3rem 0.6rem;
+  cursor: pointer;
+}
+```
