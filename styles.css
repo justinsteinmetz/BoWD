@@ -1,6 +1,8 @@
 ```css
+/* ===== RESET ===== */
 * { box-sizing: border-box; margin: 0; padding: 0; }
 
+/* ===== BASE ===== */
 body {
   font-family: 'Source Sans 3', sans-serif;
   background: linear-gradient(#6FB3C8,#7FC0D3);
@@ -9,7 +11,7 @@ body {
 
 body.locked { overflow: hidden; }
 
-/* LOGIN */
+/* ===== LOGIN ===== */
 .login-screen {
   position: fixed;
   inset: 0;
@@ -74,59 +76,87 @@ body.locked { overflow: hidden; }
   cursor: pointer;
 }
 
-/* HEADER */
-.masthead { text-align:center; padding:3rem 1rem 2rem; }
+/* ===== HEADER ===== */
+.masthead {
+  text-align: center;
+  padding: 3rem 1rem 2rem;
+}
+
 .masthead h1 {
-  font-family:'Crimson Text', serif;
-  font-style:italic;
-  color:white;
+  font-family: 'Crimson Text', serif;
+  font-style: italic;
+  color: white;
 }
 
-/* NAV */
-.zone-nav-wrap { display:flex; justify-content:center; }
+/* ===== NAV ===== */
+.zone-nav-wrap {
+  display: flex;
+  justify-content: center;
+}
+
 .zone-nav button {
-  background:rgba(255,255,255,0.2);
-  border:none;
-  padding:0.6rem;
-  color:white;
+  background: rgba(255,255,255,0.2);
+  border: none;
+  padding: 0.6rem;
+  color: white;
+  cursor: pointer;
 }
-.zone-nav button.active { background:#D65A4A; }
 
-/* MAIN */
-main { max-width:720px; margin:auto; padding:2rem; padding-bottom:120px; }
+.zone-nav button.active {
+  background: #D65A4A;
+}
 
-/* ZONES */
-.zone { display:none; }
-.zone.active { display:block; }
+/* ===== MAIN ===== */
+main {
+  max-width: 720px;
+  margin: auto;
+  padding: 2rem;
+  padding-bottom: 120px;
+}
 
-/* CHOICES */
-.choice-row button { margin:0.3rem; padding:0.4rem; }
-.choice-row button.active { background:#D65A4A; color:white; }
+/* ===== ZONES ===== */
+.zone { display: none; }
+.zone.active { display: block; }
 
-/* TEXT */
-textarea { width:100%; margin-top:1rem; min-height:80px; }
+/* ===== CHOICES ===== */
+.choice-row button {
+  margin: 0.3rem;
+  padding: 0.4rem;
+  border: none;
+  background: rgba(255,255,255,0.6);
+  cursor: pointer;
+}
 
-/* AGG */
-.aggregation { margin-top:0.5rem; font-size:0.8rem; }
+.choice-row button.active {
+  background: #D65A4A;
+  color: white;
+}
 
-/* RESPONSES */
+/* ===== TEXT ===== */
+textarea {
+  width: 100%;
+  margin-top: 1rem;
+  min-height: 80px;
+}
+
+/* ===== RESPONSES ===== */
 .response-panel {
-  position:fixed;
-  bottom:0;
-  left:0;
-  right:0;
-  max-height:30%;
-  overflow-y:auto;
-  background:rgba(255,255,255,0.95);
-  padding:1rem;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  max-height: 30%;
+  overflow-y: auto;
+  background: rgba(255,255,255,0.95);
+  padding: 1rem;
 }
 
-/* TEACHER */
+/* ===== TEACHER PANEL ===== */
 #teacher-panel {
-  position:fixed;
-  top:10px;
-  right:10px;
-  display:none;
-  gap:0.5rem;
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  display: none;
+  gap: 0.5rem;
 }
 ```
