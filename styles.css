@@ -1,785 +1,271 @@
 /* ===== RESET ===== */
-* { box-sizing: border-box; margin: 0; padding: 0; }
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  }
 
 /* ===== BASE ===== */
 body {
-  font-family: 'Source Sans 3', sans-serif;
-  background: linear-gradient(135deg, #6FB3C8 0%, #7FC0D3 100%);
-  color: #2F2A26;
-  min-height: 100vh;
+font-family: 'Source Sans 3', sans-serif;
+background: linear-gradient(#6FB3C8, #7FC0D3);
+color: #2F2A26;
 }
 
 body.locked {
-  overflow: hidden;
+overflow: hidden;
 }
 
-/* ===== LOGIN ===== */
+/* ===== LOGIN SCREEN ===== */
 .login-screen {
-  position: fixed;
-  inset: 0;
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  padding-left: 10%;
-  background: linear-gradient(
-    to right,
-    rgba(111,179,200,0.92) 0%,
-    rgba(111,179,200,0.7) 35%,
-    rgba(127,192,211,0.4) 70%,
-    rgba(127,192,211,0.2) 100%
-  ),
-  url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23ffffff20"%3E%3Cpath d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z"/%3E%3C/svg%3E') repeat;
-  background-size: 40px;
-  background-blend-mode: overlay;
-  z-index: 999;
+position: fixed;
+inset: 0;
+
+display: block;
+
+/* 👇 layered background (gradient + image) */
+background-image:
+linear-gradient(
+to right,
+rgba(111,179,200,0.85) 0%,
+rgba(111,179,200,0.65) 40%,
+rgba(127,192,211,0.3) 75%,
+rgba(127,192,211,0.1) 100%
+),
+url('cover.jpg');
+
+background-repeat: no-repeat, no-repeat;
+background-size: cover, cover;
+background-position: left center, right center;
+
+z-index: 999;
 }
 
+/* ===== LOGIN BOX (LEFT POSITIONED) ===== */
 .login-box {
-  text-align: center;
-  padding: 2rem 2.5rem;
-  background: rgba(255,255,255,0.2);
-  backdrop-filter: blur(12px);
-  border-radius: 24px;
-  box-shadow: 0 20px 40px rgba(0,0,0,0.2);
-  border: 1px solid rgba(255,255,255,0.3);
+position: absolute;
+
+left: 8%;
+top: 55%;
+transform: translateY(-50%);
+
+width: 280px;
+
+padding: 1.5rem;
+
+background: rgba(255,255,255,0.18);
+backdrop-filter: blur(10px);
+border-radius: 12px;
+
+box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+
+text-align: center;
 }
 
 .login-title {
-  font-family: 'Crimson Text', serif;
-  font-size: 2.4rem;
-  font-style: italic;
-  color: white;
-  text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+font-family: 'Crimson Text', serif;
+font-size: 2rem;
+font-style: italic;
+color: white;
 }
 
 .entry-prompt {
-  color: rgba(255,255,255,0.95);
-  margin: 1rem 0 0.5rem;
-  font-weight: 500;
+color: rgba(255,255,255,0.9);
+margin-bottom: 1rem;
 }
 
 .login-box input {
-  padding: 0.8rem 1rem;
-  width: 200px;
-  border: none;
-  border-radius: 40px;
-  background: rgba(255,255,255,0.25);
-  color: white;
-  font-size: 1rem;
-  text-align: center;
-  outline: none;
-  transition: all 0.2s;
-}
-
-.login-box input:focus {
-  background: rgba(255,255,255,0.4);
+width: 100%;
+padding: 0.6rem;
+border: none;
+border-radius: 6px;
+background: rgba(255,255,255,0.3);
+color: white;
+margin-top: 0.5rem;
 }
 
 .login-box input::placeholder {
-  color: rgba(255,255,255,0.7);
+color: rgba(255,255,255,0.7);
 }
 
 .login-box button {
-  margin-top: 1.2rem;
-  padding: 0.6rem 1.5rem;
-  border: none;
-  background: #D65A4A;
-  color: white;
-  cursor: pointer;
-  border-radius: 40px;
-  font-weight: 600;
-  font-size: 1rem;
-  transition: transform 0.1s, background 0.2s;
-}
-
-.login-box button:hover {
-  background: #b8473a;
-  transform: scale(1.02);
+margin-top: 1rem;
+padding: 0.5rem 1rem;
+border: none;
+background: #D65A4A;
+color: white;
+cursor: pointer;
+border-radius: 999px;
 }
 
 /* ===== HEADER ===== */
 .masthead {
-  text-align: center;
-  padding: 2rem 1rem 1rem;
+text-align: center;
+padding: 3rem 1rem 2rem;
 }
 
 .masthead-label {
-  color: rgba(255,255,255,0.8);
-  font-size: 0.75rem;
-  letter-spacing: 2px;
-  text-transform: uppercase;
+color: rgba(255,255,255,0.7);
+font-size: 0.8rem;
+letter-spacing: 1px;
 }
 
 .masthead h1 {
-  font-family: 'Crimson Text', serif;
-  font-style: italic;
-  color: white;
-  font-size: 2.8rem;
-  text-shadow: 2px 2px 6px rgba(0,0,0,0.15);
-  letter-spacing: -0.5px;
+font-family: 'Crimson Text', serif;
+font-style: italic;
+color: white;
+font-size: 2.2rem;
 }
 
 .masthead-author {
-  color: rgba(255,255,255,0.85);
-  margin-top: 0.2rem;
-  font-size: 1rem;
+color: rgba(255,255,255,0.8);
+margin-top: 0.3rem;
 }
 
 /* ===== NAV ===== */
 .zone-nav-wrap {
-  display: flex;
-  justify-content: center;
-  margin: 1rem 0 0.5rem;
-  flex-wrap: wrap;
-  gap: 6px;
-  padding: 0 10px;
+display: flex;
+justify-content: center;
+margin-bottom: 1rem;
 }
 
 .zone-nav {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 6px;
+display: flex;
+flex-wrap: wrap;
+justify-content: center;
+gap: 0.4rem;
+max-width: 600px;
 }
 
 .zone-nav button {
-  background: rgba(255,255,255,0.25);
-  border: none;
-  padding: 0.6rem 1rem;
-  color: white;
-  cursor: pointer;
-  border-radius: 40px;
-  font-weight: 500;
-  transition: all 0.2s;
-  backdrop-filter: blur(4px);
-}
-
-.zone-nav button:hover {
-  background: rgba(255,255,255,0.4);
-  transform: translateY(-1px);
+background: rgba(255,255,255,0.2);
+border: none;
+padding: 0.6rem 0.8rem;
+color: white;
+cursor: pointer;
+border-radius: 999px;
 }
 
 .zone-nav button.active {
-  background: #D65A4A;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+background: #D65A4A;
 }
 
 /* ===== MAIN ===== */
 main {
-  max-width: 760px;
-  margin: 0 auto;
-  padding: 1.5rem 2rem 100px;
+max-width: 720px;
+margin: auto;
+padding: 2rem;
+padding-bottom: 120px;
 }
 
 /* ===== ZONES ===== */
 .zone {
-  display: none;
-  animation: fadeIn 0.25s ease;
+display: none;
 }
 
 .zone.active {
-  display: block;
+display: block;
 }
 
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(8px);}
-  to { opacity: 1; transform: translateY(0);}
-}
-
-/* ===== PROMPT & CARDS ===== */
+/* ===== PROMPT ===== */
 .zone h2 {
-  font-family: 'Crimson Text', serif;
-  font-size: 1.9rem;
-  color: white;
-  margin-bottom: 0.25rem;
-  font-weight: 600;
+font-size: 2rem;
+margin-bottom: 1rem;
 }
 
-.zone-prompt {
-  background: rgba(255,255,255,0.2);
-  padding: 0.75rem 1rem;
-  border-radius: 20px;
-  font-size: 1.1rem;
-  margin: 0.5rem 0 1rem;
-  backdrop-filter: blur(4px);
-  font-style: italic;
+.zone > div:first-of-type {
+background: rgba(255,255,255,0.2);
+padding: 0.8rem 1rem;
+border-radius: 20px;
+font-style: italic;
 }
 
 /* ===== CHOICES ===== */
 .choice-row {
-  margin: 1rem 0;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
+margin-top: 1rem;
 }
 
 .choice-row button {
-  padding: 0.5rem 1.2rem;
-  cursor: pointer;
-  border: none;
-  background: rgba(255,255,255,0.85);
-  border-radius: 40px;
-  font-weight: 500;
-  font-size: 0.95rem;
-  transition: all 0.15s;
-  color: #2F2A26;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-}
-
-.choice-row button:hover {
-  background: white;
-  transform: scale(1.02);
+margin: 0.3rem;
+padding: 0.5rem 0.9rem;
+cursor: pointer;
+border: none;
+background: rgba(255,255,255,0.85);
+border-radius: 999px;
+font-weight: 500;
 }
 
 .choice-row button.active {
-  background: #D65A4A;
-  color: white;
-  box-shadow: 0 2px 8px rgba(214,90,74,0.4);
+background: #D65A4A;
+color: white;
 }
 
 /* ===== TEXT ===== */
-.zone-text-label {
-  margin-top: 1.2rem;
-  font-weight: 600;
-  color: rgba(255,255,255,0.9);
-  font-size: 0.85rem;
-  letter-spacing: 0.5px;
-}
-
 textarea {
-  width: 100%;
-  margin-top: 0.4rem;
-  min-height: 90px;
-  border: none;
-  padding: 0.9rem;
-  background: rgba(255,255,255,0.9);
-  border-radius: 20px;
-  font-family: 'Source Sans 3', monospace;
-  font-size: 0.95rem;
-  resize: vertical;
-  transition: all 0.2s;
-  border: 1px solid transparent;
-}
-
-textarea:focus {
-  outline: none;
-  background: white;
-  border-color: #D65A4A;
-  box-shadow: 0 2px 12px rgba(0,0,0,0.1);
+width: 100%;
+margin-top: 1.5rem;
+min-height: 80px;
+border: none;
+padding: 0.6rem;
+background: rgba(255,255,255,0.7);
+border-radius: 6px;
 }
 
 /* ===== AGGREGATION ===== */
 .aggregation {
-  margin-top: 1rem;
-  padding: 0.8rem;
-  background: rgba(0,0,0,0.2);
-  border-radius: 20px;
-  font-size: 0.85rem;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
-  backdrop-filter: blur(4px);
+margin-top: 0.5rem;
+font-size: 0.8rem;
 }
 
 .agg-item {
-  background: rgba(255,255,255,0.2);
-  padding: 4px 12px;
-  border-radius: 40px;
-  cursor: pointer;
-  transition: all 0.1s;
-  font-weight: 500;
-}
-
-.agg-item:hover {
-  background: rgba(255,255,255,0.4);
-  transform: scale(1.02);
+cursor: pointer;
+opacity: 0.6;
 }
 
 .agg-item.active {
-  background: #D65A4A;
-  color: white;
-  opacity: 1;
+opacity: 1;
+font-weight: bold;
 }
 
 .agg-item.dimmed {
-  opacity: 0.3;
+opacity: 0.2;
 }
 
-/* ===== RESPONSE PANEL ===== */
+/* ===== RESPONSES ===== */
 .response-panel {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  max-height: 35%;
-  overflow-y: auto;
-  background: rgba(30, 35, 38, 0.95);
-  backdrop-filter: blur(12px);
-  padding: 1rem 1.5rem;
-  font-size: 0.9rem;
-  border-top: 2px solid #D65A4A;
-  transform: translateY(100%);
-  transition: transform 0.25s ease;
-  z-index: 900;
-  color: #f0f0f0;
-  box-shadow: 0 -6px 20px rgba(0,0,0,0.2);
+position: fixed;
+bottom: 0;
+left: 0;
+right: 0;
+
+max-height: 30%;
+overflow-y: auto;
+
+background: rgba(255,255,255,0.95);
+padding: 1rem;
+font-size: 0.9rem;
 }
 
-.response-panel.visible {
-  transform: translateY(0);
+.response-item {
+margin-bottom: 0.5rem;
 }
 
-.response-entry {
-  padding: 0.6rem 0.8rem;
-  margin-bottom: 8px;
-  background: rgba(255,255,255,0.1);
-  border-radius: 16px;
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-}
-
-.response-name {
-  font-weight: 700;
-  color: #FFB347;
-  font-size: 0.8rem;
-  letter-spacing: 0.3px;
-}
-
-/* ===== TEACHER PANEL (VISIBLE + STYLISH) ===== */
+/* ===== TEACHER PANEL ===== */
 #teacher-panel {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  display: flex;
-  gap: 8px;
-  z-index: 1000;
-  background: rgba(0,0,0,0.75);
-  backdrop-filter: blur(12px);
-  padding: 10px 16px;
-  border-radius: 60px;
-  border: 1px solid rgba(255,255,255,0.2);
-  transition: opacity 0.2s;
+position: fixed;
+top: 12px;
+right: 12px;
+display: flex;
+gap: 0.5rem;
+z-index: 1000;
 }
 
 #teacher-panel button {
-  padding: 6px 14px;
-  cursor: pointer;
-  background: #2C3E2F;
-  border: none;
-  color: white;
-  border-radius: 40px;
-  font-weight: 500;
-  font-size: 0.75rem;
-  transition: all 0.15s;
+padding: 0.3rem 0.6rem;
+cursor: pointer;
+border: none;
+border-radius: 6px;
+background: rgba(0,0,0,0.6);
+color: white;
 }
-
-#teacher-panel button:hover {
-  background: #D65A4A;
-  transform: scale(1.02);
-}
-
-/* ===== SPOTLIGHT / HELPER ===== */
-.error {
-  background: rgba(214,90,74,0.9);
-  color: white;
-  padding: 2rem;
-  border-radius: 24px;
-  text-align: center;
-}
-
-/* ===== RESPONSIVE ===== */
-@media (max-width: 650px) {
-  .login-screen { padding-left: 5%; }
-  .login-box { padding: 1.5rem; }
-  .masthead h1 { font-size: 2rem; }
-  main { padding: 1rem 1.2rem 100px; }
-  .zone-nav button { padding: 0.4rem 0.7rem; font-size: 0.8rem; }
-}
-</style>
-</head>
-<body class="locked">
-
-<!-- LOGIN SCREEN -->
-<div id="login-screen" class="login-screen">
-  <div class="login-box">
-    <div class="login-title">Because of Winn-Dixie</div>
-    <div class="entry-prompt">Enter your name to begin</div>
-    <input id="nameInput" placeholder="Your name" autocomplete="off" onkeydown="if(event.key==='Enter') startSession()">
-    <button onclick="startSession()">Start Reading →</button>
-  </div>
-</div>
-
-<!-- TEACHER PANEL (now visible by default, but can be hidden with T) -->
-<div id="teacher-panel">
-  <button id="btn-agg" onclick="toggleAggregation()">Hide responses</button>
-  <button id="btn-freeze" onclick="freezeAggregation()">Freeze</button>
-  <button onclick="resetAggregation()">Reset</button>
-  <button onclick="clearSpotlight()">Clear Focus</button>
-  <button id="btn-responses" onclick="toggleResponsePanel()">Show thoughts</button>
-</div>
-
-<!-- HEADER -->
-<div class="masthead">
-  <div class="masthead-label">A Reading Journey</div>
-  <h1>Because of Winn-Dixie</h1>
-  <div class="masthead-author">Kate DiCamillo</div>
-</div>
-
-<!-- NAVIGATION -->
-<div class="zone-nav-wrap">
-  <nav id="nav" class="zone-nav"></nav>
-</div>
-
-<!-- MAIN APP CONTENT -->
-<main id="app"></main>
-
-<!-- RESPONSE PANEL (hidden initially) -->
-<div id="response-panel" class="response-panel">
-  <em style="opacity:0.6;">💬 Class thoughts will appear here</em>
-</div>
-
-<script>
-// =====================
-// GLOBAL STATE
-// =====================
-const STATE = { choices: {}, text: {} };
-const CLASS = {};
-
-let currentUser = null;
-let activeZone = null;
-
-let SHOW_AGG = true;
-let FROZEN = false;
-let SHOW_RESPONSES = false;
-
-// =====================
-// CHANNEL
-// =====================
-let channel = null;
-try {
-  channel = new BroadcastChannel("bowd-class");
-} catch (e) {
-  console.warn("BroadcastChannel not supported");
-}
-
-// =====================
-// LOGIN & SAVE
-// =====================
-function startSession() {
-  const input = document.getElementById("nameInput");
-  const name = (input.value || "").trim();
-  if (!name) return;
-
-  currentUser = name + "_" + Math.random().toString(36).slice(2, 6);
-
-  const saved = localStorage.getItem("bowd_" + name);
-  if (saved) {
-    try {
-      const parsed = JSON.parse(saved);
-      STATE.choices = parsed.choices || {};
-      STATE.text = parsed.text || {};
-    } catch (e) {}
-  }
-
-  document.body.classList.remove("locked");
-
-  const screen = document.getElementById("login-screen");
-  screen.style.opacity = "0";
-  setTimeout(() => (screen.style.display = "none"), 400);
-
-  render();
-
-  setTimeout(() => {
-    Object.entries(STATE.choices).forEach(([group, value]) => {
-      if (channel) channel.postMessage({ user: currentUser, group, value });
-    });
-    Object.entries(STATE.text).forEach(([group, users]) => {
-      const text = users[currentUser];
-      if (text && channel) {
-        channel.postMessage({ user: currentUser, group, text });
-      }
-    });
-  }, 300);
-}
-
-function saveState() {
-  if (!currentUser) return;
-  const name = currentUser.split("_")[0];
-  localStorage.setItem(
-    "bowd_" + name,
-    JSON.stringify({
-      choices: STATE.choices,
-      text: STATE.text,
-    })
-  );
-}
-
-// =====================
-// RENDER (with validation)
-// =====================
-function render() {
-  if (!window.ZONES || !ZONES.length) {
-    document.getElementById("app").innerHTML = '<div class="error">⚠️ Configuration error: zones missing. Please reload.</div>';
-    return;
-  }
-
-  if (!activeZone) activeZone = ZONES[0].id;
-
-  const nav = document.getElementById("nav");
-  const root = document.getElementById("app");
-  if (!nav || !root) return;
-
-  nav.innerHTML = ZONES.map(
-    (z) => `<button onclick="setZone('${z.id}', this)" class="${z.id === activeZone ? "active" : ""}">${z.title}</button>`
-  ).join("");
-
-  root.innerHTML = ZONES.map(
-    (z) => `
-      <div id="${z.id}" class="zone ${z.id === activeZone ? "active" : ""}">
-        <h2>${z.title}</h2>
-        <p class="zone-prompt">${z.prompt}</p>
-        <div class="choice-row">
-          ${z.choices.map((c) => `<button onclick="selectChoice(this,'${z.id}')">${c}</button>`).join("")}
-        </div>
-        ${z.agg ? `<div class="aggregation" id="agg-${z.id}"></div>` : ""}
-        <div class="zone-text-label">✏️ Your thought</div>
-        <textarea placeholder="Write a short thought..." onblur="handleText(this)"></textarea>
-      </div>
-    `
-  ).join("");
-
-  restoreUI();
-  restoreText();
-  ZONES.forEach(z => updateAggregation(z.id));
-}
-
-function setZone(id, btn) {
-  // auto-save current text before switching
-  const currentZoneEl = document.querySelector('.zone.active');
-  if (currentZoneEl) {
-    const ta = currentZoneEl.querySelector('textarea');
-    if (ta && ta.value !== undefined) {
-      handleText(ta);
-    }
-  }
-
-  activeZone = id;
-  document.querySelectorAll(".zone-nav button").forEach((b) => b.classList.remove("active"));
-  if (btn) btn.classList.add("active");
-
-  ZONES.forEach((z) => {
-    const el = document.getElementById(z.id);
-    if (el) el.classList.toggle("active", z.id === id);
-  });
-
-  if (SHOW_RESPONSES) renderResponsePanel();
-}
-
-// =====================
-// CHOICES
-// =====================
-function selectChoice(el, group) {
-  const value = el.textContent.trim();
-  if (STATE.choices[group] === value) return;
-
-  el.parentElement.querySelectorAll("button").forEach((b) => b.classList.remove("active"));
-  el.classList.add("active");
-
-  STATE.choices[group] = value;
-  saveState();
-
-  if (!CLASS[group]) CLASS[group] = { choices: {}, text: {} };
-  CLASS[group].choices[currentUser] = value;
-
-  updateAggregation(group);
-  if (channel) channel.postMessage({ user: currentUser, group, value });
-}
-
-// =====================
-// TEXT
-// =====================
-function handleText(el) {
-  const zoneEl = el.closest(".zone");
-  if (!zoneEl) return;
-  const group = zoneEl.id;
-  if (!STATE.text[group]) STATE.text[group] = {};
-  STATE.text[group][currentUser] = el.value;
-  saveState();
-  if (!CLASS[group]) CLASS[group] = { choices: {}, text: {} };
-  CLASS[group].text[currentUser] = el.value;
-  if (channel) channel.postMessage({ user: currentUser, group, text: el.value });
-  if (SHOW_RESPONSES && group === activeZone) renderResponsePanel();
-}
-
-// =====================
-// BROADCAST RECEIVE
-// =====================
-if (channel) {
-  channel.onmessage = (e) => {
-    if (FROZEN) return;
-    const { user, group, value, text } = e.data;
-    if (user === currentUser) return;
-    if (!CLASS[group]) CLASS[group] = { choices: {}, text: {} };
-    if (value) {
-      CLASS[group].choices[user] = value;
-      updateAggregation(group);
-    }
-    if (text !== undefined) {
-      CLASS[group].text[user] = text;
-      if (SHOW_RESPONSES && group === activeZone) renderResponsePanel();
-    }
-  };
-}
-
-// =====================
-// AGGREGATION + SPOTLIGHT (clearSpotlight included)
-// =====================
-function updateAggregation(group) {
-  const el = document.getElementById("agg-" + group);
-  if (!el) return;
-  if (!SHOW_AGG || !CLASS[group]) {
-    el.innerHTML = "";
-    return;
-  }
-  const counts = {};
-  Object.values(CLASS[group].choices).forEach((v) => {
-    counts[v] = (counts[v] || 0) + 1;
-  });
-  el.innerHTML = Object.entries(counts)
-    .sort((a, b) => b[1] - a[1])
-    .map(([k, v]) => `<span class="agg-item" onclick="toggleSpotlight('${group}','${k.replace(/'/g, "\\'")}')">${k}: ${v}</span>`)
-    .join(" ");
-}
-
-function toggleSpotlight(group, choiceText) {
-  const items = document.querySelectorAll(`#agg-${group} .agg-item`);
-  let clicked = null;
-  items.forEach(item => {
-    if (item.textContent.startsWith(choiceText + ":")) clicked = item;
-  });
-  if (!clicked) return;
-  const isActive = clicked.classList.contains("active");
-  items.forEach(item => {
-    item.classList.remove("active", "dimmed");
-  });
-  if (!isActive) {
-    clicked.classList.add("active");
-    items.forEach(item => {
-      if (item !== clicked) item.classList.add("dimmed");
-    });
-  }
-}
-
-function clearSpotlight() {
-  document.querySelectorAll('.agg-item').forEach(el => {
-    el.classList.remove('active', 'dimmed');
-  });
-}
-
-// =====================
-// RESPONSE PANEL
-// =====================
-function renderResponsePanel() {
-  const panel = document.getElementById("response-panel");
-  if (!panel) return;
-  const group = activeZone;
-  const classTexts = CLASS[group] ? CLASS[group].text : {};
-  const myText = STATE.text[group] ? STATE.text[group][currentUser] : null;
-  const entries = [];
-  if (myText) entries.push({ name: currentUser.split("_")[0] + " (you)", text: myText });
-  Object.entries(classTexts).forEach(([user, text]) => {
-    if (user !== currentUser && text) entries.push({ name: user.split("_")[0], text });
-  });
-  panel.innerHTML = "";
-  if (entries.length === 0) {
-    panel.innerHTML = '<em style="opacity:0.6;">💭 No thoughts yet. Write something above.</em>';
-  } else {
-    entries.forEach(({ name, text }) => {
-      const div = document.createElement("div");
-      div.className = "response-entry";
-      div.innerHTML = `<span class="response-name">📖 ${name}</span><span>${escapeHtml(text)}</span>`;
-      panel.appendChild(div);
-    });
-  }
-}
-
-function escapeHtml(str) {
-  if (!str) return "";
-  return str.replace(/[&<>]/g, function(m) {
-    if (m === '&') return '&amp;';
-    if (m === '<') return '&lt;';
-    if (m === '>') return '&gt;';
-    return m;
-  });
-}
-
-// =====================
-// RESTORE UI
-// =====================
-function restoreUI() {
-  Object.entries(STATE.choices).forEach(([group, val]) => {
-    const btns = document.querySelectorAll(`#${group} .choice-row button`);
-    btns.forEach(btn => {
-      if (btn.textContent.trim() === val) btn.classList.add("active");
-    });
-  });
-}
-
-function restoreText() {
-  Object.entries(STATE.text).forEach(([group, users]) => {
-    const el = document.querySelector(`#${group} textarea`);
-    if (el && users[currentUser]) el.value = users[currentUser];
-  });
-}
-
-// =====================
-// TEACHER CONTROLS
-// =====================
-function toggleAggregation() {
-  SHOW_AGG = !SHOW_AGG;
-  const btn = document.getElementById("btn-agg");
-  if (btn) btn.textContent = SHOW_AGG ? "Hide responses" : "Show responses";
-  ZONES.forEach((z) => updateAggregation(z.id));
-}
-
-function freezeAggregation() {
-  FROZEN = !FROZEN;
-  const btn = document.getElementById("btn-freeze");
-  if (btn) btn.textContent = FROZEN ? "Unfreeze" : "Freeze";
-}
-
-function resetAggregation() {
-  Object.keys(CLASS).forEach((k) => delete CLASS[k]);
-  ZONES.forEach((z) => updateAggregation(z.id));
-  renderResponsePanel();
-}
-
-function toggleResponsePanel() {
-  SHOW_RESPONSES = !SHOW_RESPONSES;
-  const panel = document.getElementById("response-panel");
-  const btn = document.getElementById("btn-responses");
-  if (panel) panel.classList.toggle("visible", SHOW_RESPONSES);
-  if (btn) btn.textContent = SHOW_RESPONSES ? "Hide thoughts" : "Show thoughts";
-  if (SHOW_RESPONSES) renderResponsePanel();
-}
-
-// =====================
-// TEACHER PANEL TOGGLE (T key)
-// =====================
-document.addEventListener("keydown", (e) => {
-  if (e.key.toLowerCase() === "t") {
-    const panel = document.getElementById("teacher-panel");
-    if (panel) panel.style.display = panel.style.display === "none" ? "flex" : "none";
-  }
-});
-
-// initial panel visible
-document.addEventListener("DOMContentLoaded", () => {
-  const panel = document.getElementById("teacher-panel");
-  if (panel) panel.style.display = "flex";
-});
-</script>
-<script src="zones.js"></script>
-</body>
-</html>
