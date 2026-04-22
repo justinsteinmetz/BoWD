@@ -26,16 +26,20 @@ body.locked {
     linear-gradient(rgba(111,179,200,0.6), rgba(127,192,211,0.7)),
     url('cover.jpg');
 
-  background-size: 140%;
-  background-position: 70% center;
+  /* 👇 Bigger + shifted right */
+  background-size: 160%;
+  background-position: 80% center;
   background-repeat: no-repeat;
 
   z-index: 999;
 }
 
+/* 👇 UI shifted LEFT so it doesn't cover her face */
 .login-box {
   text-align: center;
   padding: 1.5rem 2rem;
+
+  margin-left: -120px;
 
   background: rgba(255,255,255,0.15);
   backdrop-filter: blur(8px);
