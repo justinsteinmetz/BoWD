@@ -40,7 +40,7 @@ background-repeat: no-repeat;
 z-index: 999;
 }
 
-/* MOBILE FIX — centre + show whole image */
+/* MOBILE LOGIN FIX */
 @media (max-width: 768px) {
 .login-screen {
 justify-content: center;
@@ -53,8 +53,8 @@ background-position: center;
 text-align: center;
 padding: 1.5rem 2rem;
 
-background: rgba(255,255,255,0.18);
-backdrop-filter: blur(10px);
+background: rgba(255,255,255,0.22);
+backdrop-filter: blur(12px);
 border-radius: 12px;
 
 width: 90%;
@@ -102,7 +102,7 @@ cursor: pointer;
 /* ===== HEADER ===== */
 .masthead {
 text-align: center;
-padding: 2rem 1rem 1rem;
+padding: 3rem 1rem 1.5rem;
 }
 
 .masthead-label {
@@ -128,9 +128,15 @@ margin-top: 0.3rem;
 .zone-nav-wrap {
 display: flex;
 justify-content: center;
+margin-top: 0.5rem;
+padding: 0 1rem;
+}
+
+.zone-nav {
+display: flex;
 flex-wrap: wrap;
+justify-content: center;
 gap: 6px;
-padding: 0.5rem 1rem;
 }
 
 .zone-nav button {
@@ -159,7 +165,7 @@ padding-bottom: 120px;
 .zone { display: none; }
 .zone.active { display: block; }
 
-/* ===== TEXT BLOCKS ===== */
+/* ===== TEXT ===== */
 .zone h2 {
 margin-bottom: 0.5rem;
 }
@@ -176,12 +182,12 @@ margin-top: 1rem;
 .choice-row button {
 margin: 0.3rem;
 padding: 0.5rem 0.8rem;
-cursor: pointer;
 
 border: none;
 border-radius: 20px;
 
 background: rgba(255,255,255,0.7);
+cursor: pointer;
 }
 
 .choice-row button.active {
@@ -217,33 +223,26 @@ padding: 1rem;
 font-size: 0.9rem;
 }
 
-/* ===== TEACHER PANEL (FIXED CLEAN) ===== */
+/* ===== TEACHER PANEL ===== */
 #teacher-panel {
 position: fixed;
-top: 10px;
-right: 10px;
+bottom: 12px;
+left: 50%;
+transform: translateX(-50%);
 
 display: flex;
-gap: 6px;
+gap: 8px;
+
 z-index: 1000;
 }
 
 #teacher-panel button {
-padding: 0.4rem 0.6rem;
-font-size: 0.75rem;
+padding: 0.5rem 0.7rem;
+font-size: 0.8rem;
 
 border: none;
-border-radius: 10px;
+border-radius: 20px;
 
 background: rgba(0,0,0,0.6);
 color: white;
-}
-
-/* MOBILE: move teacher panel down */
-@media (max-width: 768px) {
-#teacher-panel {
-top: auto;
-bottom: 10px;
-right: 10px;
-}
 }
