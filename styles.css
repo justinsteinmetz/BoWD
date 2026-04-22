@@ -221,4 +221,33 @@ textarea {
   padding: 0.3rem 0.6rem;
   cursor: pointer;
 }
-```
+/* ===== MOBILE FIX ===== */
+@media (max-width: 768px) {
+
+  .login-screen {
+    background-size: 220%;
+    background-position: 75% center;
+  }
+
+  .login-box {
+    margin-left: 0;
+    width: 85%;
+    max-width: 320px;
+    padding: 1.2rem;
+
+    backdrop-filter: blur(6px);
+  }
+
+  .login-title {
+    font-size: 1.6rem;
+  }
+
+  .login-box input {
+    width: 100%;
+  }
+
+  .login-box button {
+    width: 100%;
+  }
+
+}
