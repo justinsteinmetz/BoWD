@@ -22,13 +22,25 @@ function startSession(){
 
   document.body.classList.remove("locked");
 
-  const screen = document.getElementById("login-screen");
-  screen.style.opacity = "0";
-  setTimeout(()=> screen.style.display="none", 400);
-
+  // 👇 RENDER FIRST (important)
   render();
+
+  // 👇 Immediately show Zone 1 behind login
+  setZone(ZONES[0].id);
+
+  const screen = document.getElementById("login-screen");
+
+  // 👇 Fade out login
+  screen.style.opacity = "0";
+
+  setTimeout(()=>{
+    screen.style.display = "none";
+  }, 400);
 }
 
+// =====================
+// RENDER
+// =====================
 function render(){
 
   const nav = document.getElementById("nav");
@@ -53,26 +65,40 @@ function render(){
 
       ${z.agg ? `<div class="aggregation" id="agg-${z.id}"></div>` : ""}
 
-      <textarea oninput="handleText(this)"></textarea>
+      <textarea placeholder="Write a short thought..." oninput="handleText(this)"></textarea>
     </div>
   `).join("");
 }
 
+// =====================
+// NAVIGATION
+// =====================
 function setZone(id, btn){
-  document.querySelectorAll(".zone").forEach(z=>z.classList.remove("active"));
-  document.getElementById(id).classList.add("active");
 
-  document.querySelectorAll(".zone-nav button").forEach(b=>b.classList.remove("active"));
+  document.querySelectorAll(".zone").forEach(z=>{
+    z.classList.remove("active");
+  });
+
+  const target = document.getElementById(id);
+  if(target) target.classList.add("active");
+
+  document.querySelectorAll(".zone-nav button").forEach(b=>{
+    b.classList.remove("active");
+  });
+
   if(btn) btn.classList.add("active");
 }
 
+// =====================
+// CHOICES
+// =====================
 function selectChoice(el, group){
-  const value = el.textContent.trim();
 
   const buttons = el.parentElement.querySelectorAll("button");
   buttons.forEach(b=>b.classList.remove("active"));
   el.classList.add("active");
 
+  const value = el.textContent.trim();
   STATE.choices[group] = value;
 
   if(channel){
@@ -80,7 +106,11 @@ function selectChoice(el, group){
   }
 }
 
+// =====================
+// TEXT
+// =====================
 function handleText(el){
+
   const group = el.closest(".zone").id;
 
   if(!STATE.text[group]) STATE.text[group] = {};
@@ -91,6 +121,9 @@ function handleText(el){
   }
 }
 
+// =====================
+// TEACHER PANEL
+// =====================
 document.addEventListener("keydown", (e)=>{
   if(e.key.toLowerCase()==="t"){
     const panel = document.getElementById("teacher-panel");
