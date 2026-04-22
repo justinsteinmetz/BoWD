@@ -1,5 +1,5 @@
-```javascript
 const ZONES = [
+
   {
     id: "z1",
     title: "First Impressions",
@@ -7,6 +7,7 @@ const ZONES = [
     choices: ["Character", "Setting", "Feeling", "Action"],
     agg: true
   },
+
   {
     id: "z2",
     title: "Understanding",
@@ -14,6 +15,7 @@ const ZONES = [
     choices: ["Clear", "Confusing", "Interesting", "Strange"],
     agg: true
   },
+
   {
     id: "z3",
     title: "Connection",
@@ -21,6 +23,7 @@ const ZONES = [
     choices: ["My life", "Another story", "The world", "Nothing yet"],
     agg: true
   },
+
   {
     id: "z4",
     title: "Interpretation",
@@ -28,5 +31,5 @@ const ZONES = [
     choices: ["Important", "Not important", "Unsure", "Symbolic"],
     agg: true
   }
+
 ];
-```
