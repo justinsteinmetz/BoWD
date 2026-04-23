@@ -1,3 +1,5 @@
+// ===== ZONES DATA (FIXED) =====
+
 const ZONES = [
   {
     id: "z1",
@@ -38,7 +40,16 @@ const ZONES = [
     id: "z6",
     title: "The Dog's Role",
     prompt: "How does Winn-Dixie change things?",
-    choices: ["Brings people together", "Creates trouble", "Shows loyalty", "Teaches a lesson", "All of these"],
+    choices: [
+      "Brings people together",
+      "Creates trouble",
+      "Shows loyalty",
+      "Teaches a lesson",
+      "All of these"
+    ],
     agg: true
   }
 ];
+
+// 🔑 CRITICAL FIX: expose correct variable name for app.js
+const zones = ZONES;
