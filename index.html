@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -13,29 +12,24 @@
 <body class="locked">
 
 <!-- ===== LOGIN ===== -->
-
 <div id="login-screen" class="login-screen">
   <div class="login-box">
     <div class="login-title">Because of Winn-Dixie</div>
     <div class="entry-prompt">Enter your name</div>
 
-```
-<input
-  id="nameInput"
-  type="text"
-  placeholder="Your name"
-  autocomplete="off"
-  onkeydown="if(event.key==='Enter') startSession()"
->
+    <input
+      id="nameInput"
+      type="text"
+      placeholder="Your name"
+      autocomplete="off"
+      onkeydown="if(event.key==='Enter') startSession()"
+    >
 
-<button onclick="startSession()">Start</button>
-```
-
+    <button onclick="startSession()">Start</button>
   </div>
 </div>
 
-<!-- ===== TEACHER PANEL (toggle with T) ===== -->
-
+<!-- ===== TEACHER PANEL ===== -->
 <div id="teacher-panel">
   <button id="btn-agg" onclick="toggleAggregation()">Hide responses</button>
   <button id="btn-freeze" onclick="freezeAggregation()">Freeze</button>
@@ -44,7 +38,6 @@
 </div>
 
 <!-- ===== HEADER ===== -->
-
 <header class="masthead">
   <div class="masthead-label">A Reading Journey</div>
   <h1>Because of Winn-Dixie</h1>
@@ -52,25 +45,20 @@
 </header>
 
 <!-- ===== NAV ===== -->
-
 <div class="zone-nav-wrap">
   <nav id="nav" class="zone-nav"></nav>
 </div>
 
 <!-- ===== MAIN APP ===== -->
-
 <main id="app"></main>
 
 <!-- ===== RESPONSE PANEL ===== -->
-
 <div id="response-panel" class="response-panel" style="display:none;">
   <em style="opacity:0.5;">Student thoughts will appear here</em>
 </div>
 
 <!-- ===== SCRIPTS ===== -->
-
 <script src="zones.js"></script>
-
 <script src="app.js"></script>
 
 </body>
