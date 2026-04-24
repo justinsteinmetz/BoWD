@@ -78,7 +78,8 @@ body.locked { overflow: hidden; }
 }
 .login-title {
   font-family: 'Libre Baskerville', serif; font-style: italic;
-  font-size: 1.9rem; color: white;
+  font-size: clamp(1.4rem, 7vw, 1.9rem); color: white;
+  line-height: 1.25; word-break: keep-all; hyphens: none;
 }
 .entry-prompt { color: rgba(255,255,255,0.9); margin: 0.5rem 0 1rem; font-family: 'Patrick Hand', cursive; }
 .login-box input {
@@ -89,12 +90,13 @@ body.locked { overflow: hidden; }
 .login-box input::placeholder { color: rgba(255,255,255,0.7); }
 .login-box button {
   margin-top: 1rem; padding: 0.6rem; width: 100%;
-  border: none; border-radius: 20px; background: #D65A4A; color: white;
+  border: none; border-radius: 20px;
+  background: rgba(255,255,255,0.28); color: white;
   cursor: pointer; font-family: 'Patrick Hand', cursive; font-size: 1rem;
   transition: background 150ms ease;
-  box-shadow: 0 3px 8px rgba(0,0,0,0.12), inset 0 1px 0 rgba(255,255,255,0.6);
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,0.45);
 }
-.login-box button:hover { background: #c04e3f; }
+.login-box button:hover { background: rgba(255,255,255,0.38); }
 
 /* ===== MASTHEAD ===== */
 .masthead {
@@ -496,4 +498,5 @@ body.focus-mode .zone-nav-wrap { opacity: 0.2; }
   border-left: none;
   margin-left: 0;
   padding-left: 0.3rem;
-           }
+  }
+  
