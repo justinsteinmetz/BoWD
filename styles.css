@@ -67,13 +67,13 @@ body.locked { overflow: hidden; }
   z-index: 999;
 }
 @media (max-width: 768px) {
-  .login-screen { justify-content: center; padding-left: 0; background-position: center; }
+  .login-screen { justify-content: center; align-items: flex-end; padding-left: 0; padding-bottom: 10vh; background-position: center top; }
 }
 .login-box {
   text-align: center; padding: 1.8rem 2rem;
   background: rgba(255,255,255,0.22);
   backdrop-filter: blur(12px);
-  border-radius: 12px; width: 90%; max-width: 320px;
+  border-radius: 12px; width: 92%; max-width: 380px;
   box-shadow: 0 10px 30px rgba(0,0,0,0.18), inset 0 0 0 1px rgba(0,0,0,0.05);
 }
 .login-title {
@@ -323,11 +323,11 @@ main {
 }
 .char-node:hover { border-color: var(--fog); background: rgba(240,242,247,0.85); }
 .char-node.selected { border-color: var(--ink-mid); background: rgba(240,242,247,0.9); }
-.char-initial {
-  font-family: 'Libre Baskerville', serif; font-style: italic;
-  font-size: 1.4rem; color: var(--ink-mid);
-  margin-bottom: 0.4rem; line-height: 1;
+.char-icon {
+  width: 44px; height: 44px; margin: 0 auto 0.5rem;
+  display: flex; align-items: center; justify-content: center;
 }
+.char-icon svg { width: 44px; height: 44px; }
 .char-name  { font-family: 'Libre Baskerville', serif; font-style: italic; font-size: 1rem; color: var(--shadow); }
 .char-role  { font-family: 'Patrick Hand', cursive; font-size: 0.75rem; color: var(--ochre); margin-top: 0.2rem; }
 
@@ -498,5 +498,4 @@ body.focus-mode .zone-nav-wrap { opacity: 0.2; }
   border-left: none;
   margin-left: 0;
   padding-left: 0.3rem;
-  }
-  
+}
