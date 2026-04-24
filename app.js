@@ -523,4 +523,3 @@ document.addEventListener("keydown", e => {
   if (e.shiftKey && e.key === "T") document.getElementById("teacher-panel").classList.toggle("visible");
   if (e.shiftKey && e.key === "F") toggleFocusMode();
 });
-    
