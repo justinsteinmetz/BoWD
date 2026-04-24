@@ -63,7 +63,7 @@ body.locked { overflow: hidden; }
   background:
     linear-gradient(to right, rgba(93,160,184,0.88) 0%, rgba(93,160,184,0.62) 40%, rgba(122,187,192,0.42) 100%),
     url('cover.jpg');
-  background-size: cover; background-position: 75% center; background-repeat: no-repeat;
+  background-size: cover; background-position: 75% 70%; background-repeat: no-repeat;
   z-index: 999;
 }
 @media (max-width: 768px) {
