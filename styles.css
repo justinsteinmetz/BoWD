@@ -13,12 +13,12 @@
   --haze:       #8fa4b8;
   --teal:       #7ab8a0;
   --palm:       #3d6b52;
-  --paper:      #f0f2f7;
-  --chalk:      #e4e8f0;
-  --fog:        #9aaabf;
+  --paper:      #f7f3ec;
+  --chalk:      #ede7db;
+  --fog:        #a8967e;
   --craft:      #5a4a7a;
-  --divider:    rgba(154,170,191,0.45);
-  --warm-shadow: rgba(45,58,92,0.10);
+  --divider:    rgba(168,150,126,0.35);
+  --warm-shadow: rgba(80,55,30,0.10);
 }
 
 /* ===== NOISE TEXTURE ===== */
@@ -39,7 +39,7 @@ body {
   min-height: 100vh;
   background-color: var(--paper);
   background-image:
-    linear-gradient(160deg, #5da0b8 0%, #6db4c8 40%, #7abbc0 100%),
+    linear-gradient(160deg, #7a5530 0%, #a07840 40%, #b89858 100%),
     url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.045'/%3E%3C/svg%3E");
   background-blend-mode: normal, overlay;
   line-height: 1.65;
@@ -498,5 +498,4 @@ body.focus-mode .zone-nav-wrap { opacity: 0.2; }
   border-left: none;
   margin-left: 0;
   padding-left: 0.3rem;
-  }
-  
+}
